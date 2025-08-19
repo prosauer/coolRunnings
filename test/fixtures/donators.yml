@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  donation_in_cents: 1
+  message: MyText
+  runner: one
+  user: one
+
+two:
+  donation_in_cents: 1
+  message: MyText
+  runner: two
+  user: two
