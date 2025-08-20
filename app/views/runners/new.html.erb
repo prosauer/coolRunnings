@@ -1,0 +1,7 @@
+<%=form_with model: [@event, @runner] do |form| %>
+  <%=form.number_field :rounds %>
+  <%=form.number_field :minutes %>
+  <%=form.number_field :seconds %>
+  <%=form.submit %>
+  <%=form.collection_select :event_organisation_id, @event.event_organisations, :id, :name, prompt: true %>
+<% end %>

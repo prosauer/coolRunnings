@@ -1,0 +1,7 @@
+<%=form_with model: @event do |form| %>
+  <%=form.text_field :name %>
+  <%=form.datetime_field :date %>
+  <%=form.number_field :round_distance_in_meters %>
+  <%=form.rich_textarea :description %>
+  <%=form.submit %>
+<% end %>
