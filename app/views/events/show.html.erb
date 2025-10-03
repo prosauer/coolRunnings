@@ -2,3 +2,13 @@
 <%=@event.date%><br>
 <%=@event.round_distance_in_meters%><br>
 <%=@event.description%><br>
+<% if authenticated? %>
+  <% if runner = Current.user.runner_for?(@event) %>
+    <%=turbo_frame_tag "runner", src: event_runner_path(@event, runner) %>
+  <% else %>
+    <%=turbo_frame_tag "runner", src: new_event_runner_path(@event) %>
+  <% end %>
+<% else %>
+  i don't know yet
+<% end %>
+<%=link_to "Take me hoooooome", root_path%>

@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_one_attached :profile_picture
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+  def runner_for?(event)
+    runners.where(event_organisation: event.event_organisations).first
+  end
 end
