@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  allow_unauthenticated_access only: [ :new, :show, :create ]
+  allow_unauthenticated_access only: [ :show ]
   def new
     @event = Event.new
   end
