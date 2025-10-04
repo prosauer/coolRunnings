@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Rcwebsight For Dummies" %></title>
+    <title><%= content_for(:title) || "Cool Runnings" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -22,8 +22,30 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main>
+  <body class="bg-gray-50">
+    <!-- 🔝 NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow px-8 py-4 flex items-center justify-between z-50">
+      <div class="text-lg font-semibold text-gray-800">
+        <% if authenticated? %>
+          Hello, <%= Current.user.name %> 👋
+        <% else %>
+          Welcome 👋
+        <% end %>
+      </div>
+
+      <div class="space-x-4">
+        <% if authenticated? %>
+          <%=button_to "Log out", session_path, method: :delete,
+              class: "text-red-600 hover:text-red-800 font-medium" %>
+        <% else %>
+          <%= link_to "Log in", new_session_path, 
+              class: "text-blue-600 hover:text-blue-800 font-medium" %>
+          <%= link_to "Sign up", new_user_path, 
+              class: "text-green-600 hover:text-green-800 font-medium" %>
+        <% end %>
+      </div>
+    </nav>
+    <main class="pt-20 px-8">
       <%= yield %>
     </main>
   </body>

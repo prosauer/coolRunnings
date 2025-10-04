@@ -1,14 +1,8 @@
-<% if authenticated?%>
-  <% userName = Current.user.name %>
-<% else %>
-  <% userName = "NichtKarsten" %>
-<% end %>
-<h1 class="text-9xl">Hallo <%= userName %>!</h1>
-lol<br>
+<h2 class="text-2xl">Events</h2>
 <%@events.each do |event| %>
   <%=link_to event.name, event%><br>
 <%end%>
-<%=link_to "Log in", new_session_path%> 
-<%=link_to "Sign up", new_user_path%><br>
-<%=link_to "Create new Event!", new_event_path%>
-<%=button_to "Log out", session_path, method: :delete%> 
+<% if authenticated? %>
+  <%=link_to "Create new Event!", new_event_path%><br>
+<% end %>
+
