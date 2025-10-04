@@ -23,21 +23,22 @@
   </head>
 
   <body class="bg-gray-50">
-    <!-- 🔝 NAVBAR -->
     <nav class="fixed top-0 left-0 w-full bg-white shadow px-8 py-4 flex items-center justify-between z-50">
       <div class="text-lg font-semibold text-gray-800">
-        <% if authenticated? %>
-          Hello, <%= Current.user.name %> 👋
-        <% else %>
-          Welcome 👋
-        <% end %>
+        <%=link_to "Cool Runnings", root_path%>
       </div>
 
-      <div class="space-x-4">
+      <div class="flex items-center space-x-4">
         <% if authenticated? %>
+          <div class="text-lg text-gray-800">
+            Hello, <%= Current.user.name %> 👋
+          </div>
           <%=button_to "Log out", session_path, method: :delete,
               class: "text-red-600 hover:text-red-800 font-medium" %>
         <% else %>
+          <div class="text-lg text-gray-800">
+            Welcome 👋
+          </div>
           <%= link_to "Log in", new_session_path, 
               class: "text-blue-600 hover:text-blue-800 font-medium" %>
           <%= link_to "Sign up", new_user_path, 
