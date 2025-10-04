@@ -1,3 +1,10 @@
 <%=turbo_frame_tag "runner" do %>
-  <h1 class="text-3xl">"You are signed up for this event!"</h1>
+  <h1 class="text-2xl">"You are signed up for this event!"</h1>
+  Rounds:
+  <%=@runner.rounds%><br>
+  Time per round:
+  <% seconds = @runner.time_per_round_in_seconds %>
+  <% minutes = seconds / 60 %>
+  <% remaining_seconds = seconds % 60 %>
+  <%=minutes%> min. <%=remaining_seconds%> sec. 
 <% end %>

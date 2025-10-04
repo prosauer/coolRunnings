@@ -1,10 +1,13 @@
 <%=turbo_frame_tag "runner" do %>
-  lol
   <%=form_with model: [@event, @runner] do |form| %>
-    <%=form.number_field :rounds %>
-    <%=form.number_field :minutes %>
-    <%=form.number_field :seconds %>
+    <%=form.label :rounds %>:
+    <%=form.number_field :rounds %><br>
+    <%=form.label :minutes %>:
+    <%=form.number_field :minutes %><br>
+    <%=form.label :seconds %>:
+    <%=form.number_field :seconds %><br>
+    <%=form.label :event_organisation_id %>:
+    <%=form.collection_select :event_organisation_id, @event.event_organisations, :id, :name, prompt: true %><br>
     <%=form.submit "Sign up for event"%>
-    <%=form.collection_select :event_organisation_id, @event.event_organisations, :id, :name, prompt: true %>
   <% end %>
 <% end %>
